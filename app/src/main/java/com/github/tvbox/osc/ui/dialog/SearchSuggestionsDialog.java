@@ -15,13 +15,17 @@ import com.google.android.flexbox.JustifyContent;
 import com.lxj.xpopup.impl.PartShadowPopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SearchSuggestionsDialog extends PartShadowPopupView {
 
     private List<String> mList;
     private OnSelectListener onSelectListener;
     private FlexboxLayout mFl;
+    private Set<Integer> selectedIndices = new HashSet<>();
+    private int maxSelectCount = 1;
 
     public SearchSuggestionsDialog(@NonNull Context context, List<String> list, OnSelectListener onSelectListener) {
         super(context);
@@ -53,9 +57,22 @@ public class SearchSuggestionsDialog extends PartShadowPopupView {
                 final String text = mList.get(i);
                 TextView tv = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.item_search_word_hot, mFl, false);
                 tv.setText(text);
+                updateTagStyle(tv, selectedIndices.contains(position));
                 tv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        boolean wasSelected = selectedIndices.contains(position);
+                        if (wasSelected) {
+                            selectedIndices.remove(position);
+                        } else {
+                            if (maxSelectCount == 1) {
+                                selectedIndices.clear();
+                            }
+                            if (maxSelectCount <= 0 || selectedIndices.size() < maxSelectCount) {
+                                selectedIndices.add(position);
+                            }
+                        }
+                        updateSuggestions(mList);
                         if (onSelectListener != null) {
                             onSelectListener.onSelect(position, text);
                         }
@@ -64,5 +81,23 @@ public class SearchSuggestionsDialog extends PartShadowPopupView {
                 mFl.addView(tv);
             }
         }
+    }
+
+    private void updateTagStyle(TextView tv, boolean selected) {
+        if (selected) {
+            tv.setBackgroundResource(R.drawable.bg_tag_selected);
+            tv.setTextColor(getResources().getColor(R.color.white));
+        } else {
+            tv.setBackgroundResource(R.drawable.bg_tag_normal);
+            tv.setTextColor(getResources().getColor(R.color.text_foreground));
+        }
+    }
+
+    public void setMaxSelectCount(int count) {
+        this.maxSelectCount = count;
+    }
+
+    public Set<Integer> getSelectedIndices() {
+        return selectedIndices;
     }
 }
