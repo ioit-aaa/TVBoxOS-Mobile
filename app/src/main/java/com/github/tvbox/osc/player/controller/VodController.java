@@ -359,8 +359,8 @@ public class VodController extends BaseController {
             listener.toggleFullScreen();
             hideBottom();
         });
-        findViewById(R.id.cast).setOnClickListener(view -> {
-            listener.cast();
+// // //         findViewById(R.id.cast).setOnClickListener(view -> {
+// // //             listener.cast();
             hideBottom();
         });
         pip.setOnClickListener(view -> {//画中画
@@ -774,7 +774,7 @@ public class VodController extends BaseController {
 
         void exit();
 
-        void cast();
+// // //         void cast();
 
         /**
          * Imm..bar沉浸式在系统弹窗/部分弹窗消失后会重新显示标题栏状态栏(未解决),暂时将隐藏底部栏的时机回调给外部页面处理

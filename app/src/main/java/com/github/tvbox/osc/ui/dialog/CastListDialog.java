@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.cast.dlna.dmc.DLNACastManager;
+// // // // import com.android.cast.dlna.dmc.DLNACastManager;
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -24,12 +24,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class CastListDialog extends CenterPopupView {
+// // // public class CastListDialog extends CenterPopupView {
 
     private final CastVideo castVideo;
     private CastDevicesAdapter adapter;
 
-    public CastListDialog(@NonNull @NotNull Context context, CastVideo castVideo) {
+// // //     public CastListDialog(@NonNull @NotNull Context context, CastVideo castVideo) {
         super(context);
         this.castVideo = castVideo;
     }
@@ -42,26 +42,26 @@ public class CastListDialog extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
-        DLNACastManager.getInstance().bindCastService(App.getInstance());
+// // //         // DLNACastManager.getInstance().bindCastService(App.getInstance());
         findViewById(R.id.btn_cancel).setOnClickListener(view -> {
             dismiss();
         });
         findViewById(R.id.btn_confirm).setOnClickListener(view ->{
             adapter.setNewData(new ArrayList<>());
-            DLNACastManager.getInstance().search(null, 1);
+// // //             // DLNACastManager.getInstance().search(null, 1);
         });
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new CastDevicesAdapter();
         rv.setAdapter(adapter);
-        DLNACastManager.getInstance().registerDeviceListener(adapter);
+// // //         // DLNACastManager.getInstance().registerDeviceListener(adapter);
 
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Device item = (Device)adapter.getItem(position);
                 if (item!=null){
-                    DLNACastManager.getInstance().cast(item,castVideo);
+// // // // // //                     // DLNACastManager.getInstance().cast(item,castVideo);
                 }
             }
         });
@@ -70,7 +70,7 @@ public class CastListDialog extends CenterPopupView {
     @Override
     protected void onDismiss() {
         super.onDismiss();
-        DLNACastManager.getInstance().unregisterListener(adapter);
-        DLNACastManager.getInstance().unbindCastService(App.getInstance());
+// // //         // DLNACastManager.getInstance().unregisterListener(adapter);
+// // //         // DLNACastManager.getInstance().unbindCastService(App.getInstance());
     }
 }

@@ -15,7 +15,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="投屏"
+// // //         android:text="投屏"
         android:textColor="@color/text_foreground"
         android:textStyle="bold"
         android:textSize="18sp"/>

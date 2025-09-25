@@ -164,7 +164,7 @@ public class LocalVideoController extends BaseController {
     protected void initView() {
         super.initView();
         findViewById(R.id.pip).setVisibility(GONE);
-        findViewById(R.id.cast).setVisibility(GONE);
+// // //         findViewById(R.id.cast).setVisibility(GONE);
         mMyBatteryView = findViewById(R.id.battery);
         findViewById(R.id.container_top_right_device_info).setVisibility(VISIBLE);
         findViewById(R.id.setting).setVisibility(GONE);

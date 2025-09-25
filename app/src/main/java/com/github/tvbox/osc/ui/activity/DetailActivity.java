@@ -58,7 +58,7 @@ import com.github.tvbox.osc.ui.adapter.SeriesAdapter;
 import com.github.tvbox.osc.ui.adapter.SeriesFlagAdapter;
 import com.github.tvbox.osc.ui.dialog.AllVodSeriesBottomDialog;
 import com.github.tvbox.osc.ui.dialog.AllVodSeriesRightDialog;
-import com.github.tvbox.osc.ui.dialog.CastListDialog;
+// // // import com.github.tvbox.osc.ui.dialog.CastListDialog;
 import com.github.tvbox.osc.ui.dialog.QuickSearchDialog;
 import com.github.tvbox.osc.ui.dialog.VideoDetailDialog;
 import com.github.tvbox.osc.ui.fragment.PlayFragment;
@@ -319,7 +319,7 @@ public class DetailActivity extends BaseVbActivity<ActivityDetailBinding> {
         VodInfo.VodSeries vodSeries = vodInfo.seriesMap.get(vodInfo.playFlag).get(vodInfo.playIndex);
         new XPopup.Builder(this)
                 .maxWidth(ConvertUtils.dp2px(360))
-                .asCustom(new CastListDialog(this, new CastVideo(vodSeries.name
+// // //                 .asCustom(new CastListDialog(this, new CastVideo(vodSeries.name
                         , TextUtils.isEmpty(playFragment.getFinalUrl()) ? vodSeries.url : playFragment.getFinalUrl())))
                 .show();
     }
@@ -920,7 +920,7 @@ public class DetailActivity extends BaseVbActivity<ActivityDetailBinding> {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private RemoteAction generateRemoteAction(int iconResId, int actionCode, String title, String desc) {
         final PendingIntent intent =
-                PendingIntent.getBroadcast(
+// // //                 PendingIntent.getBroadcast(
                         DetailActivity.this,
                         actionCode,
                         new Intent(IntentKey.BROADCAST_ACTION).putExtra("action", actionCode),

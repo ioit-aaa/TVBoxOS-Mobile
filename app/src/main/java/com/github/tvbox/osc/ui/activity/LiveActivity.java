@@ -44,7 +44,7 @@ import com.github.tvbox.osc.ui.adapter.LiveChannelItemNewAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveSettingGroupAdapter;
 import com.github.tvbox.osc.ui.adapter.LiveSettingItemAdapter;
 import com.github.tvbox.osc.ui.dialog.AllChannelsRightDialog;
-import com.github.tvbox.osc.ui.dialog.CastListDialog;
+// // // import com.github.tvbox.osc.ui.dialog.CastListDialog;
 import com.github.tvbox.osc.ui.dialog.LivePasswordDialog;
 import com.github.tvbox.osc.ui.dialog.LiveSettingDialog;
 import com.github.tvbox.osc.ui.dialog.LiveSettingRightDialog;
@@ -188,7 +188,7 @@ public class LiveActivity extends BaseActivity {
         findViewById(R.id.ic_pre_source).setOnClickListener(view -> playPreSource());
         findViewById(R.id.ic_next_source).setOnClickListener(view -> playNextSource());
         tv_srcinfo.setOnClickListener(view -> playNextSource());
-        //投屏/设置
+// // //         //投屏/设置
         findViewById(R.id.ic_setting).setOnClickListener(view -> showSettingDialog(false));
         findViewById(R.id.ic_cast).setOnClickListener(view -> showCastDialog());
 
@@ -499,7 +499,7 @@ public class LiveActivity extends BaseActivity {
     private void initVideoView() {
         LiveNewController controller = new LiveNewController(this);
         PlayerMenuView playerMenuView = getPlayerMenuView();
-        controller.addControlComponent(playerMenuView); //菜单栏,设置投屏等
+// // //         controller.addControlComponent(playerMenuView); //菜单栏,设置投屏等
         controller.addControlComponent(new LiveControlView(this)); //直播控制条
         //标题栏
         mPlayerTitleView = new PlayerTitleView(this);
@@ -1113,7 +1113,7 @@ public class LiveActivity extends BaseActivity {
         if (currentLiveChannelItem!=null){
             new XPopup.Builder(this)
                     .maxWidth(ConvertUtils.dp2px(360))
-                    .asCustom(new CastListDialog(this,new CastVideo(currentLiveChannelItem.getChannelName(),currentLiveChannelItem.getUrl())))
+// // //                     .asCustom(new CastListDialog(this,new CastVideo(currentLiveChannelItem.getChannelName(),currentLiveChannelItem.getUrl())))
                     .show();
         }
     }

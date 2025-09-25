@@ -69,7 +69,7 @@ public class ControlManager {
                         intent.setPackage(mContext.getPackageName());
                         intent.setComponent(new ComponentName(mContext, SearchReceiver.class));
                         intent.putExtras(bundle);
-                        mContext.sendBroadcast(intent);
+// // //                         mContext.sendBroadcast(intent);
                     }
                 }
 

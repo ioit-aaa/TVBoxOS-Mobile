@@ -303,7 +303,7 @@ public class PlayFragment extends BaseLazyFragment {
             }
 
             @Override
-            public void cast() {
+// // //             public void cast() {
                 activity.showCastDialog();
             }
 
