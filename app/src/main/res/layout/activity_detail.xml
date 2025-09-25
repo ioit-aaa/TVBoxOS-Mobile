@@ -124,7 +124,7 @@
                             android:focusable="true"
                             android:gravity="center"
                             android:paddingHorizontal="10dp"
-// // //                             android:text="投屏"
+                             android:text="投屏"
                             android:textColor="@color/text_foreground" />
 
                         <View
