@@ -162,7 +162,7 @@ dependencies {
     //崩溃
     implementation project(":crash")
     //dlna投屏
-    implementation 'com.github.devin1014.DLNA-Cast:dlna-dmc:master-SNAPSHOT'
+    implementation 'com.github.devin1014.DLNA-Cast:dlna-dmc:56148d0172'
     // Lifecycles only (without ViewModel or LiveData)
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 }
